@@ -85,8 +85,6 @@ function addFlavor(array, flavor){
   return array
 }
 
-console.log(addFlavor(originalFlavors, "Rainbow Sherbert"));
-
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Houston, we have a problem! There are now 32 flavors in the originalFlavors array! Your task is to remove an item from the end of the array. 
 
@@ -185,10 +183,29 @@ Use the getAverageWordLength function below to do the following:
   For example: getAverageWordLength(originalFlavors) should return a number between 0 and 3.     
 */
 
-function getAverageWordLength(/*code here*/){
-  /*code here*/
-}
+// const reducer = (previous, current)=>previous + current
+// const splitWords = originalFlavors[1].split(' ')
+// const lengthSplit = splitWords.length
 
+// console.log(lengthSplit)
+// console.log(splitWords.reduce(reducer))
+
+// const reducer = (previous, current)=>previous + current
+// const avg = (originalFlavors) => originalFlavors.reduce(reducer) / originalFlavors.length;
+//   return avg
+
+// Correct & Functioning
+function getAverageWordLength(array){
+  const result=[];
+  for (let i = 0; i<array.length; i++){
+   const splitWords = array[i].split(' ');
+   result.push(splitWords.length)
+  }
+  const avg = result.reduce((p, c) => p +c, 0) / result.length;
+  return Math.round(avg); 
+}
+//Keep console log for proof
+// console.log(getAverageWordLength(originalFlavors));
 
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪💪💪💪
 Baskin Robins now offers new flavors, seasonal flavors, and even regional flavors. Write a function that will randomly select a total of 31 flavors 
